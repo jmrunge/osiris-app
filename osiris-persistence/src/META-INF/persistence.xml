@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="osiris-ejbPU" transaction-type="JTA">
+    <jta-data-source>osirisDS</jta-data-source>
+    <class>ar.com.zir.osiris.api.Config</class>
+    <class>ar.com.zir.osiris.api.personas.Calle</class>
+    <class>ar.com.zir.osiris.api.personas.ContactoPersona</class>
+    <class>ar.com.zir.osiris.api.personas.Direccion</class>
+    <class>ar.com.zir.osiris.api.personas.DireccionInternacional</class>
+    <class>ar.com.zir.osiris.api.personas.DireccionSinCalle</class>
+    <class>ar.com.zir.osiris.api.personas.DireccionTipificada</class>
+    <class>ar.com.zir.osiris.api.personas.EmailPersona</class>
+    <class>ar.com.zir.osiris.api.personas.profiles.Empleado</class>
+    <class>ar.com.zir.osiris.api.personas.profiles.Cliente</class>
+    <class>ar.com.zir.osiris.api.personas.profiles.Proveedor</class>
+    <class>ar.com.zir.osiris.api.personas.profiles.Socio</class>
+    <class>ar.com.zir.osiris.api.personas.Localidad</class>
+    <class>ar.com.zir.osiris.api.personas.Pais</class>
+    <class>ar.com.zir.osiris.api.personas.Persona</class>
+    <class>ar.com.zir.osiris.api.personas.PersonaFisica</class>
+    <class>ar.com.zir.osiris.api.personas.PersonaJuridica</class>
+    <class>ar.com.zir.osiris.api.personas.Provincia</class>
+    <class>ar.com.zir.osiris.api.personas.TelefonoPersona</class>
+    <class>ar.com.zir.osiris.api.personas.WebPersona</class>
+    <class>ar.com.zir.osiris.api.security.SecurityObject</class>
+    <class>ar.com.zir.osiris.api.security.SystemGroup</class>
+    <class>ar.com.zir.osiris.api.security.SystemGroupRoles</class>
+    <class>ar.com.zir.osiris.api.security.SystemOption</class>
+    <class>ar.com.zir.osiris.api.security.SystemOptionSecurity</class>
+    <class>ar.com.zir.osiris.api.security.SystemOptionSecurityOption</class>
+    <class>ar.com.zir.osiris.api.security.SystemOptionSecurityValue</class>
+    <class>ar.com.zir.osiris.api.security.SystemRole</class>
+    <class>ar.com.zir.osiris.api.security.SystemRoleUsers</class>
+    <class>ar.com.zir.osiris.api.security.SystemUser</class>
+    <class>ar.com.zir.osiris.api.security.SystemUserAdmin</class>
+    <class>ar.com.zir.osiris.api.security.SystemUserPassword</class>
+    <class>ar.com.zir.osiris.api.security.SystemUserPersonaFisica</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!--jar-file>osiris-ejb-lib.jar</jar-file>
+    <jar-file>osiris-ejb.jar</jar-file-->
+    <properties>
+      <property name="eclipselink.logging.logger" value="DefaultLogger"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+      <property name="eclipselink.target-server" value="SunAS9"/>
+      <property name="eclipselink.cache.type.default" value="Weak"/>
+      <property name="eclipselink.session.customizer" value="ar.com.zir.osiris.ejb.persistence.TableSequence"/>
+      <property name="eclipselink.jdbc.sequence-connection-pool" value="true"/>
+      <!--property name="eclipselink.cache.shared.default" value="false"/-->
+    </properties>
+  </persistence-unit>
+</persistence>

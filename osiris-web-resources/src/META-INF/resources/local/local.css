@@ -1,0 +1,10 @@
+
+.ui-layout-center .ui-layout-unit-content {
+    background: url("local/zirBig.png") no-repeat right bottom;
+}
+
+table.northTable {
+    background-image: url(local/appTitle.png); 
+    background-repeat: no-repeat; 
+    background-position: center;    
+}

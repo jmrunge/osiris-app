@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+    
+    <ui:composition>
+        <p:tabView rendered="#{personaBean.showTabView()}" >
+            <p:tab title="Empleado" rendered="#{personaBean.isProfileVisible('Empleado')}" >
+                <p:outputPanel rendered="#{personaBean.showProfileContent('Empleado')}" >
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel value="Límite de Adelantos" />
+                        <pe:inputNumber decimalPlaces="2" 
+                                        decimalSeparator=","
+                                        maxValue="99999999" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Empleado').limiteAdelantos}" />
+                    </h:panelGrid>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{!personaBean.showProfileContent('Empleado')}" >
+                    <p:spacer width="30" height="30" />
+                    <h:outputText value="No tiene permisos para ver el contenido de este perfil" style="font-size: 1.5em" />
+                    <p:spacer width="30" height="30" />
+                </p:outputPanel>
+            </p:tab>
+            <p:tab title="Cliente" rendered="#{personaBean.isProfileVisible('Cliente')}" >
+                <p:outputPanel rendered="#{personaBean.showProfileContent('Cliente')}" >
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel value="Límite de Deuda" />
+                        <pe:inputNumber decimalPlaces="2" 
+                                        decimalSeparator=","
+                                        maxValue="99999999" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Cliente').limiteDeuda}" />
+                        <h:outputLabel value="Días de Tolerancia" />
+                        <pe:inputNumber decimalPlaces="0" 
+                                        decimalSeparator=","
+                                        maxValue="999" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Cliente').diasDeuda}" />
+                        <h:outputLabel value="Emp. Responsable" />
+                        <p:autoComplete value="#{personaBean.getProfileObject('Cliente').empleado}" 
+                                        completeMethod="#{empleadoBean.completeEmpleado}"  
+                                        var="emp" 
+                                        itemLabel="#{emp.persona.nombre}" 
+                                        itemValue="#{emp}" 
+                                        converter="#{empleadoBean.empleadoConverter}" 
+                                        forceSelection="true"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{!personaBean.showProfileContent('Cliente')}" >
+                    <p:spacer width="30" height="30" />
+                    <h:outputText value="No tiene permisos para ver el contenido de este perfil" style="font-size: 1.5em" />
+                    <p:spacer width="30" height="30" />
+                </p:outputPanel>
+            </p:tab>
+            <p:tab title="Proveedor" rendered="#{personaBean.isProfileVisible('Proveedor')}" >
+                <p:outputPanel rendered="#{personaBean.showProfileContent('Proveedor')}" >
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel value="Límite de Deuda" />
+                        <pe:inputNumber decimalPlaces="2" 
+                                        decimalSeparator=","
+                                        maxValue="99999999" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Proveedor').limiteDeuda}" />
+                        <h:outputLabel value="Días de Tolerancia" />
+                        <pe:inputNumber decimalPlaces="0" 
+                                        decimalSeparator=","
+                                        maxValue="999" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Proveedor').diasDeuda}" />
+                        <h:outputLabel value="Emp. Responsable" />
+                        <p:autoComplete value="#{personaBean.getProfileObject('Proveedor').empleado}" 
+                                        completeMethod="#{empleadoBean.completeEmpleado}"  
+                                        var="emp" 
+                                        itemLabel="#{emp.persona.nombre}" 
+                                        itemValue="#{emp}" 
+                                        converter="#{empleadoBean.empleadoConverter}" 
+                                        forceSelection="true"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{!personaBean.showProfileContent('Proveedor')}" >
+                    <p:spacer width="30" height="30" />
+                    <h:outputText value="No tiene permisos para ver el contenido de este perfil" style="font-size: 1.5em" />
+                    <p:spacer width="30" height="30" />
+                </p:outputPanel>
+            </p:tab>
+            <p:tab title="Socio" rendered="#{personaBean.isProfileVisible('Socio')}" >
+                <p:outputPanel rendered="#{personaBean.showProfileContent('Socio')}" >
+                    <h:panelGrid columns="2" >
+                        <h:outputLabel value="Porcentaje" />
+                        <pe:inputNumber decimalPlaces="0" 
+                                        decimalSeparator=","
+                                        maxValue="100" 
+                                        minValue="0" 
+                                        thousandSeparator="." 
+                                        value="#{personaBean.getProfileObject('Socio').porcentaje}" />
+                    </h:panelGrid>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{!personaBean.showProfileContent('Socio')}" >
+                    <p:spacer width="30" height="30" />
+                    <h:outputText value="No tiene permisos para ver el contenido de este perfil" style="font-size: 1.5em" />
+                    <p:spacer width="30" height="30" />
+                </p:outputPanel>
+            </p:tab>
+        </p:tabView>
+    </ui:composition>
+</html>
